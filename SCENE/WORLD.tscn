@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SCENE/PLAYER.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SCENE/NPC.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SCENE/Item.tscn" type="PackedScene" id=4]
+
+[node name="WORLD" type="Node2D"]
+
+[node name="PLAYER" parent="." instance=ExtResource( 1 )]
+position = Vector2( 369, 328 )
+
+[node name="NPC" parent="." instance=ExtResource( 2 )]
+position = Vector2( 315, 123 )
+QUEST_ID = "KEY COLLECTOR"
+QUEST_OBJECTIVE = "GET THE THREE KEYS"
+NAME_OF_TARGET = "KEY"
+TARGET_AMOUNT = 3
+DIALOGUES = PoolStringArray( "GET THE KEYS", "THANKS I WILL BE AWAITING YOU", "DONE!!", "COMPLETE CURRENT QUEST" )
+
+[node name="NPC2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 929, 351 )
+QUEST_ID = "Master"
+QUEST_OBJECTIVE = "GET THE APPLE"
+NAME_OF_TARGET = "APPLE"
+TARGET_AMOUNT = 1
+DIALOGUES = PoolStringArray( "GET THE APPLE ", "THANKS I WILL BE AWAITING YOU", "DONE!!", "COMPLETE CURRENT QUEST" )
+
+[node name="KeyHolder" type="Node2D" parent="."]
+
+[node name="Item" parent="KeyHolder" instance=ExtResource( 4 )]
+position = Vector2( 149, 201 )
+
+[node name="Item2" parent="KeyHolder" instance=ExtResource( 4 )]
+position = Vector2( 449, 198 )
+
+[node name="Item3" parent="KeyHolder" instance=ExtResource( 4 )]
+position = Vector2( 303, 468 )
+
+[node name="AppleHolder" type="Node2D" parent="."]
+
+[node name="Item4" parent="AppleHolder" instance=ExtResource( 4 )]
+position = Vector2( 905, 241 )
+Name_Of_Item = "APPLE"
+
+[node name="Sprite" parent="AppleHolder/Item4" index="1"]
+modulate = Color( 0.87451, 0, 1, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 163.0
+margin_top = 307.0
+margin_right = 254.0
+margin_bottom = 338.0
+text = "E INTERACT
+Q QUESTLOG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="AppleHolder/Item4"]
